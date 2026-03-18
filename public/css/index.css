@@ -1,0 +1,125 @@
+/* --- RESET Y BASE --- */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at center, #0d0f2b, #050616);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 0 80px;
+}
+
+/* --- SECCIÓN DE TEXTO --- */
+.text h1 {
+    font-size: 60px;
+    line-height: 1.1;
+}
+
+/* Animación de rebote en las palabras */
+.text span {
+    display: inline-block;
+    animation: bounce 1s infinite alternate;
+}
+
+.text span:nth-child(2) { animation-delay: .2s; }
+.text span:nth-child(3) { animation-delay: .4s; }
+.text span:nth-child(4) { animation-delay: .6s; }
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-15px); }
+}
+
+/* --- BOTÓN --- */
+.btn {
+    background: #f3d6c6;
+    color: black;
+    padding: 12px 25px;
+    border-radius: 25px;
+    display: inline-block;
+    margin-top: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* --- SECCIÓN DE IMÁGENES --- */
+.images {
+    position: relative;
+    width: 450px;
+    height: 550px;
+    perspective: 1200px;
+}
+
+/* --- TARJETAS (CARDS) --- */
+.card {
+    position: absolute;
+    width: 260px;
+    height: 400px;
+    border-radius: 140px;
+    transform-style: preserve-3d;
+    box-shadow: 0 0 40px rgba(255, 140, 0, 0.4);
+}
+
+/* Efecto Neón 🔥 */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: 140px;
+    background: linear-gradient(45deg, #ff8c00, #ff0000, #ff8c00);
+    filter: blur(15px);
+    z-index: -1;
+    opacity: 0.7;
+}
+
+/* CARAS DE LA TARJETA */
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 140px;
+    overflow: hidden;
+    backface-visibility: hidden;
+}
+
+.face img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+/* --- POSICIONAMIENTO Y ANIMACIÓN FLIP --- */
+.card1 {
+    left: 20px;
+    top: 80px;
+    animation: flip 6s infinite ease-in-out;
+}
+
+.card2 {
+    left: 160px;
+    top: 20px;
+    animation: flip 6s infinite 2s ease-in-out; /* Retraso de 2s */
+}
+
+@keyframes flip {
+    0% { transform: rotateY(0); }
+    40% { transform: rotateY(180deg); }
+    60% { transform: rotateY(180deg); }
+    100% { transform: rotateY(360deg); }
+}
